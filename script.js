@@ -57,13 +57,11 @@ var confirmSpecialCase = window.confirm("Do you want your password to include sp
 
    // generate the random password
    var randomPassword = "";
-   for (var i = 0; i < lengthConfirm.length; i++) {
+   for (var i = 0; i < lengthConfirm; i++) {
        charArray[Math.floor(Math.random() * charArray.length)];
 
            randomPassword += charArray[Math.floor(Math.random() * charArray.length)];
     
-
-    console.log(charArray);
    }
 
    return randomPassword;
