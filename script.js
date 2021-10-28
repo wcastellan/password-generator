@@ -1,39 +1,67 @@
 // Assignment code here
-var password = function() {
-    var promptLength = window.prompt("Choose a password length between 8 and 128 characters.");
-        if (promptLength > 8 || promptLength < 128) {
-        var promptLowerCase = window.confirm("Include lower case letters?");
-            if (promptLowerCase === true) {
-                promptLength.promptLowerCase = "abcdefghijklmnopqrstuvwxyz";
-            } else {
-                promptLength.promptLowerCase = false;
-            }
-        var promptUpperCase = window.confirm("Include upper case letters?");
-            if (promptUpperCase === true) {
-                promptLength.promptUpperCase = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
-            } else {
-                promptLength.promptUpperCase = false;
-            }
-        var promptNumeric = window.confirm("Include numerical values?");
-            if (promptNumeric === true) {
-                promptLength.promptNumeric = "123456789";
-            } else {
-                promptLength.promptNumeric = false;
-            }
-        var promptSpecialChar = window.confirm("Include special characters?");
-            if (promptLength.promptSpecialChar === true) {
-                promptLength.promptSpecialChar = "!@#$%^&*()";
-            } else {
-                promptLength.promptSpecialChar = false;
-            }
-        } else {
-            (promptLength === "" || promptLength === null) 
-            window.alert("Please try again and select a password lenght  between 8 and 128 characters");
-            return promptLength;
-            }
-        
-    
-};
+function generatePassword() {
+    // ask for length of password
+   var promptLength = window.prompt("Enter a password between 8 and 128 characters.");
+
+   var lengthConfirm = parseInt(promptLength);
+   console.log(lengthConfirm);
+
+   // choose length of password
+   if (promptLength < 8 || promptLength > 128 || null) {
+       window.alert("Invalid choice. Please try again.");
+       return;
+   }
+   
+   // varibles for all of our characters
+   var charArray = [];
+   var lowerCase = "abcdefghijklmnopqrstuvwxyz" .split("");
+   var upperCase = "ABCDEFGHIJKLMNOPQRSTUVWXYZ" .split("");
+   var numberCase = "0123456789" .split("");
+   var specialCase = "!@#$%^&*()<>{}" .split("");
+
+   // confirm if you want lower case characters
+   var confirmLowerCase = window.confirm("Do you want your password to include lower case letters?");
+   if (confirmLowerCase === true) {
+       for (var i = 0; i < lowerCase.length; i++) {
+           charArray.push(lowerCase[i]);
+       }
+   }
+
+   // confirm if you want upper case characters
+   var confirmUpperCase = window.confirm("Do you want your password to include upper case letters?");
+   if (confirmUpperCase === true) {
+       for (var i = 0; i < upperCase.length; i++) {
+           charArray.push(upperCase[i]);
+       }
+   }
+
+   // confirm if you want numbers
+   var confirmNumberCase = window.confirm("Do you want your password to include numbers?");
+   if (confirmNumberCase === true) {
+       for (var i = 0; i < numberCase.length; i++) {
+           charArray.push(numberCase[i]);
+       }
+   }
+
+   // confirm if you want special characters
+   var confirmSpecialCase = window.confirm("Do you want your password to include special characters?");
+   if (confirmSpecialCase === true) {
+       for (var i = 0; i < specialCase.length; i++) {
+           charArray.push(specialCase[i]);
+       }
+   }
+
+   // generate the random password
+   var randomPassword = "";
+   for (i = 0; i < lengthConfirm.length; i++) {
+       charArray[Math.floor(Math.random() * charArray.length)];
+
+           randomPassword += charArray[Math.floor(Math.random() * charArray.length)];
+ 
+   }
+
+   return randomPassword;
+}
 
 // Get references to the #generate element
 var generateBtn = document.querySelector("#generate");
