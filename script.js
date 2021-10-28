@@ -13,51 +13,57 @@ function generatePassword() {
    }
    
    // varibles for all of our characters
-   var charArray = [];
-   var lowerCase = "abcdefghijklmnopqrstuvwxyz" .split("");
-   var upperCase = "ABCDEFGHIJKLMNOPQRSTUVWXYZ" .split("");
-   var numberCase = "0123456789" .split("");
-   var specialCase = "!@#$%^&*()<>{}" .split("");
+var charArray = [];
+var lowerCase = "abcdefghijklmnopqrstuvwxyz" .split("");
+var upperCase = "ABCDEFGHIJKLMNOPQRSTUVWXYZ" .split("");
+var numberCase = "0123456789" .split("");
+var specialCase = "!@#$%^&*()<>{}" .split("");
 
    // confirm if you want lower case characters
-   var confirmLowerCase = window.confirm("Do you want your password to include lower case letters?");
+var confirmLowerCase = window.confirm("Do you want your password to include lower case letters?");
    if (confirmLowerCase === true) {
        for (var i = 0; i < lowerCase.length; i++) {
            charArray.push(lowerCase[i]);
        }
+       console.log(lowerCase);
    }
 
    // confirm if you want upper case characters
-   var confirmUpperCase = window.confirm("Do you want your password to include upper case letters?");
+var confirmUpperCase = window.confirm("Do you want your password to include upper case letters?");
    if (confirmUpperCase === true) {
        for (var i = 0; i < upperCase.length; i++) {
            charArray.push(upperCase[i]);
        }
+       console.log(upperCase);
    }
 
    // confirm if you want numbers
-   var confirmNumberCase = window.confirm("Do you want your password to include numbers?");
+var confirmNumberCase = window.confirm("Do you want your password to include numbers?");
    if (confirmNumberCase === true) {
        for (var i = 0; i < numberCase.length; i++) {
            charArray.push(numberCase[i]);
        }
+       console.log(numberCase);
    }
 
    // confirm if you want special characters
-   var confirmSpecialCase = window.confirm("Do you want your password to include special characters?");
+var confirmSpecialCase = window.confirm("Do you want your password to include special characters?");
    if (confirmSpecialCase === true) {
        for (var i = 0; i < specialCase.length; i++) {
            charArray.push(specialCase[i]);
        }
+       console.log(specialCase);
    }
 
    // generate the random password
    var randomPassword = "";
-   for (i = 0; i < lengthConfirm.length; i++) {
+   for (var i = 0; i < lengthConfirm.length; i++) {
        charArray[Math.floor(Math.random() * charArray.length)];
 
            randomPassword += charArray[Math.floor(Math.random() * charArray.length)];
- 
+    
+
+    console.log(charArray);
    }
 
    return randomPassword;
@@ -72,7 +78,6 @@ function writePassword() {
   var passwordText = document.querySelector("#password");
 
   passwordText.value = password;
-
 }
 
 // Add event listener to generate button
